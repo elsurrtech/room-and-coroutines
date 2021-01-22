@@ -24,15 +24,19 @@ import androidx.room.Update
 
 @Dao
 interface SleepDatabaseDao{
+    //insert function
     @Insert
     fun insert(night: SleepNight)
 
+    //update function
     @Update
     fun update(night: SleepNight)
 
+    //select function
     @Query("SELECT * FROM daily_sleep_quality_table WHERE nightId= :key")
     fun get(key:Long) : SleepNight
 
+    //Delete function
     @Query("DELETE FROM daily_sleep_quality_table")
     fun clear()
 
